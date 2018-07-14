@@ -61,8 +61,8 @@ namespace Shadowsocks.Controller
 
         private static void CloseLogFile()
         {
-            _logStreamWriter?.Dispose();
-            _logFileStream?.Dispose();
+            _logStreamWriter.Dispose();
+            _logFileStream.Dispose();
 
             _logStreamWriter = null;
             _logFileStream = null;
@@ -81,20 +81,23 @@ namespace Shadowsocks.Controller
         public static void Error(object o)
         {
             Log(LogLevel.Error, o);
-            System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] ERROR {o}");
+            //System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] ERROR {o}");
+            System.Diagnostics.Debug.WriteLine(string.Format("[{0}] ERROR {1}", DateTime.Now, o));
         }
 
         public static void Info(object o)
         {
             Log(LogLevel.Info, o);
-            System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] INFO  {o}");
+            //System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] INFO  {o}");
+            System.Diagnostics.Debug.WriteLine(string.Format("[{0}] INFO {1}", DateTime.Now, o));
         }
 
         [Conditional("DEBUG")]
         public static void Debug(object o)
         {
             Log(LogLevel.Debug, o);
-            System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] DEBUG {o}");
+            //System.Diagnostics.Debug.WriteLine($@"[{DateTime.Now}] DEBUG {o}");
+            System.Diagnostics.Debug.WriteLine(string.Format("[{0}] DEBUG {1}", DateTime.Now, o));
         }
 
         private static string ToString(StackFrame[] stacks)
@@ -252,7 +255,8 @@ namespace Shadowsocks.Controller
                 "Error",
                 "Assert",
             };
-            Console.WriteLine($@"[{strMap[(int)level]}] {s}");
+            // Console.WriteLine($@"[{strMap[(int)level]}] {s}");
+            Console.WriteLine(string.Format("[{0}] {1}", strMap[(int)level], s));
         }
 
         [Conditional("DEBUG")]

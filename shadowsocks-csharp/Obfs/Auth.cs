@@ -951,7 +951,8 @@ namespace Shadowsocks.Obfs
                     }
                     catch (Exception ex)
                     {
-                        Logging.Log(LogLevel.Warn, $"Faild to parse auth param, fallback to basic mode. {ex}");
+                        // Logging.Log(LogLevel.Warn, $"Faild to parse auth param, fallback to basic mode. {ex}");
+                        Logging.Log(LogLevel.Warn, string.Format("Faild to parse auth param, fallback to basic mode. {0}", ex));
                     }
                 }
                 if (user_key == null)
@@ -1201,7 +1202,8 @@ namespace Shadowsocks.Obfs
                     }
                     catch (Exception ex)
                     {
-                        Logging.Log(LogLevel.Warn, $"Faild to parse auth param, fallback to basic mode. {ex}");
+                        // Logging.Log(LogLevel.Warn, $"Faild to parse auth param, fallback to basic mode. {ex}");
+                        Logging.Log(LogLevel.Warn, string.Format("Faild to parse auth param, fallback to basic mode. {0}", ex));
                     }
                 }
                 if (user_key == null)

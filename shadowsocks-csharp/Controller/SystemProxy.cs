@@ -582,7 +582,8 @@ namespace Shadowsocks.Controller
                         else
                         {
                             string pacUrl;
-                            pacUrl = $"http://127.0.0.1:{config.localPort}/pac?auth={config.localAuthPassword}&t={Util.Utils.GetTimestamp(DateTime.Now)}";
+                            // pacUrl = $"http://127.0.0.1:{config.localPort}/pac?auth={config.localAuthPassword}&t={Util.Utils.GetTimestamp(DateTime.Now)}";
+                            pacUrl = string.Format("http://127.0.0.1:{0}/pac?auth={1}&t={2}", config.localPort, config.localAuthPassword, Util.Utils.GetTimestamp(DateTime.Now));
                             WinINet.SetIEProxy(true, false, "", pacUrl);
                         }
                     }

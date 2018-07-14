@@ -114,7 +114,8 @@ namespace Shadowsocks.View
             {
             }
 
-            Text = $@"{I18N.GetString("Log Viewer")} {_currentLogFileName}";
+            // Text = $@"{I18N.GetString("Log Viewer")} {_currentLogFileName}";
+            Text = string.Format("{0} {1}", I18N.GetString("Log Viewer"), _currentLogFileName);
         }
 
         private void refreshTimer_Tick(object sender, EventArgs e)
