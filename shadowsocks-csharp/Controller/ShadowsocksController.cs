@@ -506,8 +506,9 @@ namespace Shadowsocks.Controller
                 }
             }
 
-            ConfigChanged.Invoke(this, new EventArgs());
-
+            if (ConfigChanged != null) {
+                ConfigChanged.Invoke(this, new EventArgs());
+            }
             UpdateSystemProxy();
             Util.Utils.ReleaseMemory();
         }

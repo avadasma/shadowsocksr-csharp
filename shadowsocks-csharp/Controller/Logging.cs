@@ -61,11 +61,15 @@ namespace Shadowsocks.Controller
 
         private static void CloseLogFile()
         {
-            _logStreamWriter.Dispose();
-            _logFileStream.Dispose();
+            if (_logStreamWriter != null) {
+                _logStreamWriter.Dispose();
+                _logStreamWriter = null;
+            }
 
-            _logStreamWriter = null;
-            _logFileStream = null;
+            if (_logFileStream != null) {
+                _logFileStream.Dispose();
+                _logFileStream = null;
+            }
         }
 
         public static void Clear()
